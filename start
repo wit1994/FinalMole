@@ -34,17 +34,38 @@ void hole()
 	}
 	Sleep(100);
 }
-void mole(int *rn1)
+int Position(int *rn1)
 {
+	int c = 0;
 	int a = rand() % 3;
 	int b = rand() % 3 + 3;
-	int d = rn1[a];
-	int e = rn1[b];
-	gotoxy(d, e);
-	cout << " |0    0|" <<endl;
-	
-	Sleep(1000);
-	system("cls");
+	gotoxy(rn1[a], rn1[b]);
+	cout << " |0    0|" << endl;
+
+	if (rn1[a] == 0 && rn1[b] == 0) {
+		c = 1;
+	return c;
+	}
+	else if (rn1[a] == 0 && rn1[b] == 1)
+		return 2;
+	else if (rn1[a] == 0 && rn1[b] == 2)
+		return 3;
+	else if (rn1[a] == 1 && rn1[b] == 0)
+		return 4;
+	else if (rn1[a] == 1 && rn1[b] == 1)
+		return 5;
+	else if (rn1[a] == 1 && rn1[b] == 2)
+		return 6;
+	else if (rn1[a] == 2 && rn1[b] == 0)
+		return 7;
+	else if (rn1[a] == 2 && rn1[b] == 1)
+		return 8;
+	else if (rn1[a] == 2 && rn1[b] == 2)
+		return 9;
+}
+void Catchmole()
+{
+
 }
 int* TwoReturn()
 {
@@ -60,10 +81,6 @@ int* TwoReturn()
 	ip1[5] = 15;
 
 	return ip1;
-}
-void Time()
-{
-
 }
 int main()
 {
@@ -110,11 +127,7 @@ int main()
 		int* rn = TwoReturn();
 		hole();
 
-		gotoxy(40, 3);
-		cout << sec--;
-
-		mole(rn);
-		free(rn);
+		Position(rn);
 	}
 	return 0;
 }
