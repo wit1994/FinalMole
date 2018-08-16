@@ -105,7 +105,6 @@ int* TwoReturn()
 }
 int main()
 {
-
 	/*int key = 0;
 	int random = 0;
 	int sec = 5;
